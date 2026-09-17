@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Special Surprise ❤️</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .hidden { display: none; }
+
+        .intro-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 20;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 35%, #6f264a 0%, #2b0a1a 55%, #12030a 100%);
+            color: #fff;
+            text-align: center;
+            transition: opacity 1.2s ease, visibility 1.2s ease;
+        }
+
+        .intro-screen::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: .45;
+            background-image: radial-gradient(#fff 1px, transparent 1px);
+            background-size: 36px 36px;
+        }
+
+        .intro-hide { opacity: 0; visibility: hidden; }
+
+        .scene {
+            position: absolute;
+            z-index: 1;
+            width: min(90%, 650px);
+            opacity: 0;
+            transform: translateY(18px) scale(.98);
+            pointer-events: none;
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .scene.active { opacity: 1; transform: none; pointer-events: auto; }
+        .small-intro, .scene-label, .final-small { color: #ffc0d7; font-size: 12px; letter-spacing: 2px; }
+        .movie-title, .final-title { font-size: clamp(40px, 8vw, 68px); margin: 18px 0; }
+        .movie-title span, .final-name, .sneha-name { color: #ff9fc3; font-family: "Great Vibes", cursive; font-weight: 400; }
+        .movie-description, .age-message, .born-text, .countdown-subtext { line-height: 1.8; color: rgba(255,255,255,.8); }
+        .start-btn {
+            margin: 30px 0 18px;
+            padding: 15px 22px;
+            border: 0;
+            border-radius: 12px;
+            color: #fff;
+            cursor: pointer;
+            background: #e54983;
+            font: 600 15px "Poppins", sans-serif;
+        }
+        .start-btn span { margin-right: 8px; }
+        .tap-note { font-size: 12px; color: rgba(255,255,255,.62); }
+        .date-reveal, .age-number, .countdown-number { margin: 20px 0; color: #ffb1cf; font-size: clamp(48px, 12vw, 90px); font-weight: 700; }
+        .date-dot { padding: 0 .18em; color: #fff; }
+        .sneha-name, .final-name { margin: 15px 0; font-size: clamp(68px, 16vw, 120px); }
+        .name-heart { color: #ff9fc3; font-size: 17px; letter-spacing: 2px; }
+        .years-text { font-size: clamp(18px, 4vw, 30px); letter-spacing: 1px; }
+        .final-title { margin-bottom: 0; }
+    </style>
+</head>
+
+<body>
+
+    <audio id="bgMusic" loop preload="auto">
+        <source src="music/birthday-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Hearts -->
+    <div class="hearts-container">
+        <span>❤️</span>
+        <span>💕</span>
+        <span>💗</span>
+        <span>💖</span>
+        <span>✨</span>
+        <span>💕</span>
+    </div>
+
+
+    <section id="introScreen" class="intro-screen">
+        <div class="stars"></div>
+
+        <div id="startScene" class="scene active">
+            <div class="cinematic-glow"></div>
+            <p class="small-intro">A SPECIAL STORY IS ABOUT TO BEGIN</p>
+            <h1 class="movie-title">For Someone <span>Truly Special</span></h1>
+            <p class="movie-description">
+                Some people are born...<br>
+                and somehow make the world a little more beautiful.
+            </p>
+            <button id="startBtn" class="start-btn">
+                <span>Play</span>
+                Begin The Experience
+            </button>
+        </div>
+
+
+        <div id="countdownScene" class="scene">
+            <p class="countdown-text">But wait...</p>
+            <div id="countdownNumber" class="countdown-number">5</div>
+            <p class="countdown-subtext">Something magical is waiting...</p>
+        </div>
+
+        <div id="finalScene" class="scene">
+            <p class="final-small">LOVE💕</p>
+            <h2 class="final-title">HAPPY BIRTHDAY</h2>
+            <h1 class="final-name">Sneha❤️</h1>
+        </div>
+    </section>
+
+    <!-- Main Screen -->
+    <main id="mainWebsite" class="hero hidden">
+
+        <!-- Top Badge -->
+        <div class="top-badge">
+            <span class="birthday-title">Happy Birthday</span>
+            <span class="birthday-subtitle">Beautiful Soul 💗✨</span>
+        </div>
+
+
+        <!-- Photo -->
+        <div class="photo-container">
+
+            <div class="photo-glow"></div>
+
+            <img 
+                src="images/photo_01.jpeg"
+                alt="Birthday Girl"
+                class="profile-photo"
+            >
+
+            <div class="small-heart heart-1">❤️</div>
+            <div class="small-heart heart-2">💕</div>
+
+        </div>
+
+
+        <!-- Main Text -->
+        <section class="content">
+
+            <p class="hello-text">
+                18 September 2005
+            </p>
+
+            <h1>
+                Someone has something
+                <span>very special</span>
+                for you ❤️
+            </h1>
+
+            <p class="description">
+                This isn't just another birthday wish...
+                <br>
+                Someone actually took time to create
+                something only for you. 💌
+            </p>
+
+        </section>
+
+
+        <!-- Button -->
+        <button class="surprise-btn" id="surpriseBtn">
+
+            <span class="btn-icon">🎁</span>
+
+            <span class="btn-text">
+                <strong>Open Your Surprise</strong>
+                <small>But be ready... 👀</small>
+            </span>
+
+            <span class="arrow">→</span>
+
+        </button>
+
+
+        <!-- Bottom Text -->
+        <p class="bottom-text">
+            Made with a little effort, a lot of memories...
+            <br>
+            and something special for you ❤️
+        </p>
+
+    </main>
+
+    <!-- Candle moment before the memory journey -->
+    <section id="candleMoment" class="candle-moment" aria-hidden="true">
+        <div class="candle-stars" aria-hidden="true"></div>
+        <div class="candle-content">
+            <p class="candle-kicker">MAKE A LITTLE WISH</p>
+            <h2>One more beautiful moment<br><span>before the memories begin</span></h2>
+            <button id="candleButton" class="candle-button" type="button" aria-label="Blow out the birthday candle">
+                <span class="candle-flame" aria-hidden="true"></span>
+                <span class="candle-wick" aria-hidden="true"></span>
+                <span class="candle-wax" aria-hidden="true"><i></i><i></i></span>
+                <span class="candle-base" aria-hidden="true"></span>
+            </button>
+            <p class="candle-hint">Tap the flame to blow it out</p>
+        </div>
+    </section>
+
+    <!-- Rotating Memory Movie -->
+    <section id="memoryMovie" class="memory-movie" aria-hidden="true">
+        <div class="memory-background" aria-hidden="true">
+            <div class="glow glow-one"></div>
+            <div class="glow glow-two"></div>
+            <div class="floating-star star-one">✦</div>
+            <div class="floating-star star-two">✧</div>
+            <div class="floating-star star-three">✦</div>
+            <div class="floating-star star-four">✧</div>
+        </div>
+
+        <main id="memoryContent" class="memory-content">
+            <div id="photoCard" class="rotating-photo-container">
+                <div id="rotatingPhoto" class="rotating-photo">
+                    <div class="photo-face photo-side-1"><img id="memoryImage1" alt="Sneha memory 1"></div>
+                    <div class="photo-face photo-side-2"><img id="memoryImage2" alt="Sneha memory 2"></div>
+                    <div class="photo-face photo-side-3"><img id="memoryImage3" alt="Sneha memory 3"></div>
+                    <div class="photo-face photo-side-4"><img id="memoryImage4" alt="Sneha memory 4"></div>
+                    <div class="photo-face photo-side-5"><img id="memoryImage5" alt="Sneha memory 5"></div>
+                </div>
+                <div class="photo-shine"></div>
+                <div class="photo-corner corner-one"></div>
+                <div class="photo-corner corner-two"></div>
+                <div class="photo-corner corner-three"></div>
+                <div class="photo-corner corner-four"></div>
+            </div>
+
+            <section class="memory-message">
+                <div class="quote-mark">“</div>
+                <div class="memory-text-stage">
+                    <div id="textRotator" class="memory-text-rotator">
+                        <p id="memoryText" class="memory-text memory-text-front">Every beautiful story begins with a beautiful moment... ✨</p>
+                        <p id="backMemoryText" class="memory-text memory-text-back"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <section id="movieEnding" class="movie-ending" aria-hidden="true">
+            <div class="ending-content">
+                <span class="ending-label">WITH LOVE, ALWAYS</span>
+                <h2>Happy Birthday <span>Once Again ❤️</span></h2>
+                <p>May your life be filled with beautiful moments, endless smiles, and everything your heart wishes for.</p>
+                <p class="ending-thanks">Thank you for being so special ❤️</p>
+            </div>
+        </section>
+
+        <footer class="memory-footer">MADE SPECIALLY FOR SNEHA</footer>
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
